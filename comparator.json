@@ -1,7 +1,14 @@
 {
   "challenge_module": "Challenge",
   "solution_module": "Solution",
-  "theorem_names": ["PalomarTemplate.main_result"],
+  "theorem_names": [
+    "OrderExpander.greatest_good_chain",
+    "OrderSelector.wellOrdered_of_good",
+    "ChainBounding.chain_bounding",
+    "unbounded_chain",
+    "zorn",
+    "bourbaki_witt_of_complete"
+  ],
   "definition_names": [],
   "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
   "enable_nanoda": true

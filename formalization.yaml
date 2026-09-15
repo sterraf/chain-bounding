@@ -1,125 +1,176 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
-# formalization.yaml v0.4. Replace every TEMPLATE value before submitting.
-# Replace a placeholder list with [] only when its adjacent comment permits it;
-# lists described as required must remain nonempty.
 version: "v0.4"
 
 project:
-  name: "TEMPLATE: name of the formalization"
+  name: "Chain Bounding"
   description: >-
-    TEMPLATE: concise public account of the mathematical content and principal
-    results of the formalization
-  # Required nonempty list of name strings or mappings with a nonempty name.
+    Lean 4 formalization of the core results of "Chain bounding, the leanest
+    proof of Zorn's lemma, and an illustration of computerized proof
+    formalization" by Guillermo L. Incatasciato and Pedro Sánchez Terraf,
+    published in the American Mathematical Monthly (preprint freely accessible
+    at http://arxiv.org/abs/2404.11638). It formalizes the order-theoretic
+    framework of good chains for an "expander" of subsets of a poset: the
+    comparability of good chains, the existence of a greatest good chain, the
+    well-orderedness of good chains for an expander of the form
+    C ↦ C ∪ {f C}, the Chain Bounding Lemma (there is no assignment of a
+    strict upper bound to every chain of a poset), the Unbounded Chain Lemma,
+    and — as a novel, unified alternative to the classical ordinal-based
+    arguments — derivations of both Zorn's Lemma and the Bourbaki–Witt fixed
+    point theorem from Chain Bounding.
   authors:
-    - "TEMPLATE: formalizer name"
-  # Required root licence. Keep this in sync with the Apache-2.0 LICENSE file.
+    - "Guillermo L. Incatasciato"
+    - "Pedro Sánchez Terraf"
   license: "Apache-2.0"
-  # Required nonempty list of name strings or mappings with a nonempty name.
-  # For a thin wrapper, name people responsible for this submitted wrapper;
-  # submission authorization separately covers the underlying formalization.
   responsible_maintainers:
-    - "TEMPLATE: person responsible for this formalization"
+    - "Pedro Sánchez Terraf"
 
-# Omit repository for an ordinary project: Palomar treats this submitted
-# repository as the substantive proof development. If this repository is only
-# a thin Comparator wrapper, uncomment and pin the actual formalization in this
-# exact shape:
-# repository:
-#   substantive_formalization:
-#     id: "TEMPLATE: owner/repository or https://github.com/owner/repository"
-#     revision: "TEMPLATE: full 40-character lowercase commit SHA"
+# Ordinary project: this submitted repository is the substantive proof
+# development, so the `repository` block is omitted.
 
 classification:
-  # Use 1–2 official arXiv identifiers such as math.LO and 1–8 five-character
-  # MSC 2020 identifiers such as 03B35.
-  arxiv: ["TEMPLATE: official arXiv identifier such as math.LO"]
-  msc2020: ["TEMPLATE: five-character MSC 2020 identifier such as 03B35"]
+  arxiv: ["math.LO"]
+  msc2020: ["03E25", "06A06"]
 
 sources:
-  # Sources must be nonempty. Every source needs a title and relationship; the
-  # relationship must be exactly formalizes, adapts, independently-proves,
-  # background, or other.
-  # Choose one result origin:
-  # - For a theorem first presented by this formalization, set one source to
-  #   type: original-proof and relationship: other. All additional source
-  #   relationships must be background or other.
-  # - Otherwise, omit type: original-proof and give at least one source a
-  #   formalizes, adapts, or independently-proves relationship. A new proof of
-  #   a known published result is source-based and uses independently-proves.
-  # Type, authors, contributors, id, location, note, license, and
-  # author_endorsement are optional; remove them when genuinely inapplicable.
-  # Authors are bibliographic authors. Contributors record other source roles,
-  # with one name and free-form role such as editor or problem-proposer.
-  # Type is a concise free-text
-  # description such as article, paper, book, formalization, web post, folklore,
-  # conversation, or other. The exact value original-proof is reserved for the
-  # result-origin declaration described above.
-  # Original-result example:
-  # - title: "TEMPLATE: describe the result first presented here"
-  #   type: original-proof
-  #   relationship: other
-  - title: "TEMPLATE: title of the mathematical source"
+  - title: "Chain bounding, the leanest proof of Zorn's lemma, and an
+      illustration of computerized proof formalization"
     authors:
-      - "TEMPLATE: source author"
-    contributors:
-      - name: "TEMPLATE: source contributor"
-        role: "TEMPLATE: contributor role, for example editor or problem-proposer"
-    id: "TEMPLATE: stable identifier or versioned URL"
-    type: "TEMPLATE: concise source kind, for example article, book, or formalization"
-    location: "TEMPLATE: stable URL or bibliographic location, if available"
-    relationship: "TEMPLATE: formalizes, adapts, independently-proves, background, or other"
-    note: "TEMPLATE: explain relationship or author_endorsement: other; otherwise remove"
-    license: "TEMPLATE: source license or unknown"
-    author_endorsement: "TEMPLATE: participated, endorsed, no-response, not-contacted, declined, n/a, or other"
+      - "Guillermo L. Incatasciato"
+      - "Pedro Sánchez Terraf"
+    id: "arXiv:2404.11638"
+    type: "paper"
+    location: "http://arxiv.org/abs/2404.11638"
+    relationship: "formalizes"
+    note: "The results formalized here were published in the American
+      Mathematical Monthly; a preprint is freely accessible at
+      http://arxiv.org/abs/2404.11638."
+    author_endorsement: "participated"
 
 related_formalizations:
-  # Remove this field or use [] when none are known.
-  - id: "TEMPLATE: stable URL or identifier for earlier formalization"
-    relationship: "TEMPLATE: builds-on, adapts, independent, supersedes, or other"
-    note: "TEMPLATE: explain the relationship"
+  - id: "https://github.com/sterraf/ChainBounding"
+    relationship: "other"
+    note: "The original repository of this same development; the present
+      repository is its Palomar-compliant reorganization, with identical
+      statements and proofs."
+  - id: "https://github.com/leanprover-community/mathlib4"
+    relationship: "independent"
+    note: "Mathlib contains an independent formalization of Zorn's Lemma
+      (Mathlib.Order.Zorn) with a different proof; the present development
+      instead follows the chain-bounding route of the cited paper."
 
 status:
   scope: >-
-    TEMPLATE: state exactly what is and is not formalized, including any weaker
-    theorem, changed hypotheses, or omitted material.
-  # Count the proof development, excluding Challenge.lean's deliberate sorry.
-  # Replace each count with an unquoted nonnegative integer, for example 0.
-  sorry_count: "TEMPLATE: unquoted nonnegative integer"
-  sorry_in_definitions: "TEMPLATE: unquoted nonnegative integer"
-  axioms: ["TEMPLATE: declaration names, or replace this list with []"]
-  # status.main_results is optional. Add it only when a short curated
-  # project-level list is useful; it need not mirror Comparator declarations.
+    Formalizes the paper's core results: comparability of good chains, the
+    existence of a greatest good chain (th:greatest-good-chain),
+    well-orderedness of good chains for an expander C ↦ C ∪ {f C}
+    (prop:good-well-ordered, proved including the verification left to the
+    reader in the paper's proof), Chain Bounding (lem:chain-bounding), the
+    Unbounded Chain Lemma (lem:unbounded-chain), and the corollaries on
+    Zorn's Lemma and the Bourbaki–Witt fixed point theorem. Not formalized:
+    the ZFC-equivalence corollary (cor:unbounded-implies-AC), the converse
+    remark that every well-ordered chain is good for some expander, and the
+    paper's methodological exposition.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Quot.sound", "Classical.choice"]
 
 automation:
   methods:
-    - method: "TEMPLATE: manual, copilot, agent, autonomous, or other"
-      models: ["TEMPLATE: model names, or replace this list with []"]
-      framework: "TEMPLATE: framework name, or n/a"
-      tool_setup: "TEMPLATE: exact detail, such as AI-assisted, editors, tactics, agents, or other tools used"
+    - method: "manual"
+      models: []
+      framework: "n/a"
+      tool_setup: "Interactive Lean 4 / Mathlib development of the original
+        formalization (2024); no automation."
       cost:
-        wall_time: "TEMPLATE: approximate elapsed effort"
-        spend_usd: "TEMPLATE: amount, subscription-based, or not tracked"
-        hardware: "TEMPLATE: local machine, API-only, or other"
-      prompting_notes: "TEMPLATE: representative prompting notes, or n/a"
-  spend_usd: "TEMPLATE: total amount, subscription-based, or not tracked"
-  notes: "TEMPLATE: describe the overall human and automation workflow"
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "local machine"
+      prompting_notes: "n/a"
+    - method: "agent"
+      models: ["GLM-5.3-Flash"]
+      framework: "OpenCode"
+      tool_setup: "AI-assisted port of the development to the current
+        toolchain/Mathlib (2026) and formalization of prop:good-well-ordered;
+        all proofs human-reviewed and machine-checked."
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "subscription-based"
+        hardware: "local machine"
+      prompting_notes: "Iterative build-fix cycles driven by Lean diagnostics;
+        no automated search beyond Mathlib tactics (simp, aesop, tauto)."
+  spend_usd: "subscription-based"
+  notes: "The original formalization was written by hand. In 2026 it was
+    ported to the current toolchain and extended with
+    prop:good-well-ordered with AI assistance under OpenCode; every
+    statement was checked against the paper's source and every proof was
+    verified by Lean's kernel."
 
 fidelity:
-  divergences: "TEMPLATE: all known divergences from the cited source, or none known"
+  divergences: >-
+    (1) lem:unbounded-chain assumes AC in the paper; the Lean statement is
+    for inhabited posets and its proof uses classical logic (Lean's
+    Classical.choice, a permitted axiom). (2) Well-orderedness in
+    prop:good-well-ordered is rendered as the least-element property, with an
+    equivalent WellFoundedOn rendering additionally proved in the proof
+    module. (3) cor:unbounded-implies-AC is not formalized. No other
+    divergences are known.
 
 review:
-  status: "TEMPLATE: honest review status, for example self-assessed"
+  status: "self-assessed"
   reviewers:
-    - "TEMPLATE: reviewer name, or none"
-  notes: "TEMPLATE: describe statement audits and mathematical review performed"
+    - "Pedro Sánchez Terraf"
+  notes: "Statements audited against the paper's TeX source; development
+    compiled with Lean v4.34.0-rc2 against a pinned Mathlib revision; axiom
+    footprint of the advertised results checked with `#print axioms` (the
+    standard three axioms only)."
 
 alignment:
-  namespace: "TEMPLATE: project namespace"
+  namespace: "ChainBounding (with OrderExpander / OrderSelector /
+    ChainBounding sub-namespaces; zorn, unbounded_chain and
+    bourbaki_witt_of_complete are top-level)"
   statements:
-    - source: "TEMPLATE: source theorem or section"
-      lean: "TEMPLATE: fully qualified Lean declaration"
-      module: "TEMPLATE: Lean module containing the declaration"
-      status: "TEMPLATE: proved, partial, adapted, or other honest description"
-      note: "TEMPLATE: explain the correspondence and any qualifications"
+    - source: "Theorem th:greatest-good-chain (Greatest Good Chain)"
+      lean: "OrderExpander.greatest_good_chain"
+      module: "Challenge"
+      status: "proved"
+      note: "The family of all good chains has a maximum under inclusion;
+        `U` is defined as the union of all good chains, exactly as in the
+        paper."
+    - source: "Proposition prop:good-well-ordered"
+      lean: "OrderSelector.wellOrdered_of_good"
+      module: "Challenge"
+      status: "proved"
+      note: "The paper's proposition is itself restricted to the expander
+        C ↦ C ∪ {f C} (the OrderSelector setting), so the restriction is
+        faithful. Well-orderedness is stated as the least-element property."
+    - source: "Lemma lem:chain-bounding (Chain Bounding)"
+      lean: "ChainBounding.chain_bounding"
+      module: "Challenge"
+      status: "proved"
+      note: "Stated as the negation, as in the paper: the assumed existence
+        of a strict-upper-bound assignment (OrderSelector + ChainBounding
+        classes) leads to False."
+    - source: "Lemma lem:unbounded-chain (Unbounded Chain)"
+      lean: "unbounded_chain"
+      module: "Challenge"
+      status: "proved"
+      note: "The paper invokes AC to select strict upper bounds; the Lean
+        statement is for inhabited posets and its proof uses classical
+        logic."
+    - source: "Corollary [Zorn]"
+      lean: "zorn"
+      module: "Challenge"
+      status: "proved"
+      note: "Derived from the Unbounded Chain Lemma; this is part of the
+        unified, ordinal-free approach highlighted in the paper.
+        `IsMaximal` matches the paper's notion of maximal element."
+    - source: "Corollary [Bourbaki-Witt]"
+      lean: "bourbaki_witt_of_complete"
+      module: "Challenge"
+      status: "proved"
+      note: "Directed-complete posets (CompletePartialOrder); also derived
+        from Chain Bounding, sharing the unified approach noted for zorn."
 
-acknowledgements: "TEMPLATE: libraries, tools, and people to credit"
+acknowledgements: "The Lean and Mathlib communities for the Mathlib
+  library; OpenCode with GLM-5.3-Flash for AI-assisted porting and
+  extension of the development."
