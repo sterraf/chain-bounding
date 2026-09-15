@@ -9,16 +9,15 @@ project:
     formalization" by Guillermo L. Incatasciato and Pedro Sánchez Terraf,
     published in the American Mathematical Monthly (preprint freely accessible
     at http://arxiv.org/abs/2404.11638). It formalizes the order-theoretic
-    framework of good chains for an "expander" of subsets of a poset: the
+    notion of _good chains_ for an "expander" of subsets of a poset: the
     comparability of good chains, the existence of a greatest good chain, the
-    well-orderedness of good chains for an expander of the form
+    well-ordering of good chains for an expander of the form
     C ↦ C ∪ {f C}, the Chain Bounding Lemma (there is no assignment of a
     strict upper bound to every chain of a poset), the Unbounded Chain Lemma,
     and — as a novel, unified alternative to the classical ordinal-based
     arguments — derivations of both Zorn's Lemma and the Bourbaki–Witt fixed
     point theorem from Chain Bounding.
   authors:
-    - "Guillermo L. Incatasciato"
     - "Pedro Sánchez Terraf"
   license: "Apache-2.0"
   responsible_maintainers:
@@ -37,12 +36,11 @@ sources:
     authors:
       - "Guillermo L. Incatasciato"
       - "Pedro Sánchez Terraf"
-    id: "arXiv:2404.11638"
-    type: "paper"
-    location: "http://arxiv.org/abs/2404.11638"
+    id: "http://dx.doi.org/10.1080/00029890.2025.2571375"
+    type: "article"
+    location: "537–557"
     relationship: "formalizes"
-    note: "The results formalized here were published in the American
-      Mathematical Monthly; a preprint is freely accessible at
+    note: "A preprint is freely accessible at
       http://arxiv.org/abs/2404.11638."
     author_endorsement: "participated"
 
@@ -52,11 +50,6 @@ related_formalizations:
     note: "The original repository of this same development; the present
       repository is its Palomar-compliant reorganization, with identical
       statements and proofs."
-  - id: "https://github.com/leanprover-community/mathlib4"
-    relationship: "independent"
-    note: "Mathlib contains an independent formalization of Zorn's Lemma
-      (Mathlib.Order.Zorn) with a different proof; the present development
-      instead follows the chain-bounding route of the cited paper."
 
 status:
   scope: >-
@@ -120,7 +113,7 @@ review:
   reviewers:
     - "Pedro Sánchez Terraf"
   notes: "Statements audited against the paper's TeX source; development
-    compiled with Lean v4.34.0-rc2 against a pinned Mathlib revision; axiom
+    compiled with Lean v4.32.0 against a pinned Mathlib revision; axiom
     footprint of the advertised results checked with `#print axioms` (the
     standard three axioms only)."
 
@@ -171,6 +164,7 @@ alignment:
       note: "Directed-complete posets (CompletePartialOrder); also derived
         from Chain Bounding, sharing the unified approach noted for zorn."
 
-acknowledgements: "The Lean and Mathlib communities for the Mathlib
+acknowledgements: "Supported by Secyt-UNC project 33620230100751CB.
+  Partially supported by Conicet. The Lean and Mathlib communities for the Mathlib
   library; OpenCode with GLM-5.3-Flash for AI-assisted porting and
   extension of the development."
