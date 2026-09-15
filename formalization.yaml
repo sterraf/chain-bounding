@@ -7,7 +7,7 @@ project:
     Lean 4 formalization of the core results of "Chain bounding, the leanest
     proof of Zorn's lemma, and an illustration of computerized proof
     formalization" by Guillermo L. Incatasciato and Pedro Sánchez Terraf,
-    published in the American Mathematical Monthly (preprint freely accessible
+    published at the American Mathematical Monthly (preprint freely accessible
     at http://arxiv.org/abs/2404.11638). It formalizes the order-theoretic
     notion of _good chains_ for an "expander" of subsets of a poset: the
     comparability of good chains, the existence of a greatest good chain, the
