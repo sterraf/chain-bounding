@@ -55,7 +55,7 @@ transfinite recursion.
   the independent NanoDa replay; `scripts/landrun-wrapper.sh` preserves
   lean4export's command delimiter when invoked through Landrun's current CLI.
 
-The root uses `lakefile.toml`, the Lean toolchain `v4.34.0-rc2`, and a Mathlib
+The root uses `lakefile.toml`, the Lean toolchain `v4.32.0`, and a Mathlib
 revision pinned in `lakefile.toml` (with the resolved full commit SHA recorded
 in `lake-manifest.json`).
 
