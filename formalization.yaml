@@ -47,15 +47,17 @@ sources:
 related_formalizations:
   - id: "https://github.com/sterraf/ChainBounding"
     relationship: "other"
-    note: "The original repository of this same development; the present
-      repository is its Palomar-compliant reorganization, with identical
-      statements and proofs."
+    note: "The original repository of this same development, whose `main` branch
+      contains formalizations existing up to the moment of publication, and its
+      `palomar-test` branch formalizes the extra result
+      `OrderSelector.wellOrdered_of_good`; the present repository is its
+      Palomar-compliant reorganization, with identical statements and proofs."
 
 status:
   scope: >-
     Formalizes the paper's core results: comparability of good chains, the
     existence of a greatest good chain (th:greatest-good-chain),
-    well-orderedness of good chains for an expander C ↦ C ∪ {f C}
+    well-ordering of good chains for an expander C ↦ C ∪ {f C}
     (prop:good-well-ordered, proved including the verification left to the
     reader in the paper's proof), Chain Bounding (lem:chain-bounding), the
     Unbounded Chain Lemma (lem:unbounded-chain), and the corollaries on
@@ -94,7 +96,8 @@ automation:
   spend_usd: "subscription-based"
   notes: "The original formalization was written by hand. In 2026 it was
     ported to the current toolchain and extended with
-    prop:good-well-ordered with AI assistance under OpenCode; every
+    prop:good-well-ordered with AI assistance under OpenCode at a branch of the
+    original repository, and later formatted here for Palomar; every
     statement was checked against the paper's source and every proof was
     verified by Lean's kernel."
 
@@ -102,7 +105,7 @@ fidelity:
   divergences: >-
     (1) lem:unbounded-chain assumes AC in the paper; the Lean statement is
     for inhabited posets and its proof uses classical logic (Lean's
-    Classical.choice, a permitted axiom). (2) Well-orderedness in
+    Classical.choice, a permitted axiom). (2) Well-ordering in
     prop:good-well-ordered is rendered as the least-element property, with an
     equivalent WellFoundedOn rendering additionally proved in the proof
     module. (3) cor:unbounded-implies-AC is not formalized. No other
@@ -135,7 +138,7 @@ alignment:
       status: "proved"
       note: "The paper's proposition is itself restricted to the expander
         C ↦ C ∪ {f C} (the OrderSelector setting), so the restriction is
-        faithful. Well-orderedness is stated as the least-element property."
+        faithful. Well-ordering is stated as the least-element property."
     - source: "Lemma lem:chain-bounding (Chain Bounding)"
       lean: "ChainBounding.chain_bounding"
       module: "Challenge"
